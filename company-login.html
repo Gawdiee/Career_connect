@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Company Login - Career Connect</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-box">
+      <h2>Company Login</h2>
+      <!-- Add the ID here -->
+      <form id="company-login-form">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" placeholder="Enter your username" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        </div>
+        <button type="submit" class="btn">Login</button>
+        <p>Don't have an account? <a href="company-register.html">Register here</a></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Inline JavaScript to handle login -->
+  <script>
+    document.getElementById("company-login-form").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        fetch('http://localhost:3000/company-login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, password })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert(data.message);
+                // Store the company ID and name in local storage
+                localStorage.setItem("comp_id", data.comp_id);
+                localStorage.setItem("company_name", data.company_name);
+                // Redirect to the company dashboard
+                window.location.href = "/company-dashboard.html";
+            } else {
+                alert(data.message);
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    });
+  </script>
+</body>
+</html>

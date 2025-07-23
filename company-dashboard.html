@@ -1,0 +1,58 @@
+<!-- company-dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Company Dashboard - Career Connect</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Welcome, [Company Name]</h1>
+    <p>Manage job postings and view student applications</p>
+  </header>
+
+  <main>
+    <!-- Job Posting Form Section -->
+    <section class="job-posting box dotted-box">
+      <h2>Post a New Job</h2>
+      <form id="job-posting-form">
+        <div class="form-group">
+          <label for="job-title">Job Title</label>
+          <input type="text" id="job-title" name="title" placeholder="Enter job title" required>
+        </div>
+        <div class="form-group">
+          <label for="role">Role</label>
+          <input type="text" id="role" name="role" placeholder="Enter job role" required>
+        </div>
+        <div class="form-group">
+          <label for="eligibility">Eligibility</label>
+          <input type="text" id="eligibility" name="eligibility" placeholder="Enter eligibility criteria" required>
+        </div>
+        <button type="submit" class="btn">Post Job</button>
+      </form>
+    </section>
+
+    <!-- Applications Section -->
+    <section class="applications box dotted-box">
+      <h2>Student Applications</h2>
+      <div id="applications-container">
+        <!-- Applications received for posted jobs will be dynamically inserted here -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Inline JavaScript to display company name -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const companyName = localStorage.getItem("company_name");
+      if (companyName) {
+          document.querySelector("header h1").textContent = `Welcome, ${companyName}`;
+      }
+    });
+  </script>
+
+  <script src="company-dashboard.js"></script>
+</body>
+</html>

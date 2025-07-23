@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard - Career Connect</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1 id="welcome-message">Welcome, [Student Name]</h1>
+    <p>Find job opportunities and track your applications</p>
+  </header>
+
+  <main>
+    <!-- Job Listings Section -->
+    <section class="job-listings box dotted-box">
+      <h2>Available Job Postings</h2>
+      <div id="job-listings-container">
+        <!-- Job posts from companies will be dynamically inserted here -->
+      </div>
+    </section>
+
+    <!-- Application Tracking Section -->
+    <section class="application-tracking box dotted-box">
+      <h2>Your Applications</h2>
+      <div id="applications-container">
+        <!-- Student's applications will be dynamically inserted here -->
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Display student name on the dashboard
+    document.addEventListener("DOMContentLoaded", function() {
+        const studentName = localStorage.getItem("student_name");
+        if (studentName) {
+            document.getElementById("welcome-message").textContent = `Welcome, ${studentName}`;
+        } else {
+            document.getElementById("welcome-message").textContent = "Welcome, Student";
+        }
+    });
+  </script>
+
+  <script src="student-dashboard.js"></script>
+</body>
+</html>

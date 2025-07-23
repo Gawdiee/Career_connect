@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Company Registration - Career Connect</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-box">
+      <h2>Company Registration</h2>
+      <form action="http://localhost:3000/company-register" method="POST" onsubmit="return registerCompany()">
+        <div class="form-group">
+          <label for="name">Company Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter company name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your company email" required>
+        </div>
+        <div class="form-group">
+          <label for="location">Location</label>
+          <input type="text" id="location" name="location" placeholder="Enter company location" required>
+        </div>
+        <div class="form-group">
+          <label for="industry">Industry</label>
+          <input type="text" id="industry" name="industry" placeholder="Enter industry type" required>
+        </div>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" placeholder="Enter a username" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        </div>
+        <div class="form-group">
+          <label for="confirm-password">Confirm Password</label>
+          <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
+        </div>
+        <button type="submit" class="btn">Register</button>
+        <p>Already have an account? <a href="company-login.html">Login here</a></p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function registerCompany() {
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const location = document.getElementById('location').value;
+      const industry = document.getElementById('industry').value;
+      const username = document.getElementById('username').value; // New username field
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirm-password').value;
+
+      // Check if passwords match
+      if (password !== confirmPassword) {
+        alert("Passwords do not match");
+        return false;
+      }
+
+      fetch('http://localhost:3000/company-register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, location, industry, username, password }) // Include username in request
+      })
+      .then(response => response.json())
+      .then(data => {
+        alert(data.message);
+        document.querySelector('form').reset();
+      })
+      .catch(error => console.error('Error:', error));
+
+      return false; // Prevent default form submission
+    }
+  </script>
+</body>
+</html>
