@@ -24,3 +24,18 @@ Career Connect is a platform designed to help students explore career opportunit
 
 ## 📁 Project Structure
 
+career-connect/
+├── company-dashboard.html
+├── company-dashboard.js
+├── company-login.html
+├── company-register.html
+├── index.html
+├── package.json
+├── package-lock.json
+├── server.js
+├── student-dashboard.html
+├── student-dashboard.js
+├── student-login.html
+├── student-register.html
+├── styles.css
+└── README.md
