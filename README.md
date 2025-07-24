@@ -6,9 +6,9 @@ Career Connect is a platform designed to help students explore career opportunit
 
 ## 🔧 Tech Stack
 
-- **Frontend**: HTML/CSS/Bootstrap
+- **Frontend**: HTML/CSS
 - **Backend**: Python Flask
-- **Database**: SQLite
+- **Database**: SQL
 - **Others**: Git, GitHub
 
 ---
