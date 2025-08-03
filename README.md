@@ -1,25 +1,28 @@
 # 🚀 Career Connect
 
-Career Connect is a platform designed to help students explore career opportunities, build resumes, and connect with potential employers or mentors.
+Career Connect is a platform designed to help students explore career opportunities, and connect with potential employers or mentors.
 
 ---
 
 ## 🔧 Tech Stack
 
 - **Frontend**: HTML/CSS
-- **Backend**: Python Flask
-- **Database**: SQL
+- **Backend**: Node.js, Express.js
+- **Database**: MySQL
 - **Others**: Git, GitHub
 
 ---
 
 ## 🌟 Features
 
-- Student and Employer Registration/Login
-- Resume Upload and Profile Management
-- Job Recommendation System
-- Admin Dashboard for Job Management
-
+- Student and Company Registration/Login
+- password to login and password is stored in the database but encrypted
+- Separate interface for Student and Company 
+- Student can view job postings and application status dynamically 
+- Company can create job postings and view student details who applied
+- REST API with Express.js for registration, login, application status, etc.
+- MySQL for data management and trigger execution.
+  
 ---
 
 ## 📁 Project Structure
