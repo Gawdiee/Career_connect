@@ -56,3 +56,57 @@ career-connect/
 ├── styles.css
 
 └── README.md
+
+
+
+
+
+---
+
+## 🚀 How to Run the Career Connect Project
+
+### ✅ Prerequisites
+
+- [Node.js](https://nodejs.org/) (v14 or later)
+- [MySQL](https://www.mysql.com/) installed and running
+
+---
+
+### 📦 Step 1: Clone the Repository
+
+```bash
+git clone https://github.com/Gawdiee/Career_connect.git
+cd Career_connect
+```
+
+### ⚙️ **Step 2: Set Up the Environment**
+
+Start your MySQL server.
+
+Login and create a database:
+```
+CREATE DATABASE career_connect;
+```
+
+If required, manually import any .sql schema or tables.
+
+Edit the database credentials inside server.js:
+```
+const db = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'yourpassword',
+  database: 'career_connect'
+});
+```
+
+### 📁 **Step 3: Install Dependencies**
+```
+npm install
+```
+### ▶️ **Step 4: Run the Server**
+```
+node server.js
+```
+
+The server will start at: http://localhost:3000
